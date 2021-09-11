@@ -4,7 +4,8 @@ Ansible playbook to install nitter
 ## Requirements
 - Latest stable version of Ansible (this was tested with Ansible 2.10.7)
 - A Ubuntu 20.04 LTS server with a public IP
-- A (sub)-domain name for Nitter with a valid A record with aforementioned IP
+- A (sub)-domain name for Nitter with a valid A/AAAA record with aforementioned
+IP
 
 ## How To Use
 
