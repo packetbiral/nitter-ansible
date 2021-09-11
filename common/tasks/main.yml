@@ -1,0 +1,12 @@
+---
+# This role installs some of nitter's dependencies and creates the user
+# nitter will run under
+
+- name: Install libsass and redis-server
+  apt: name={{ packages }} state=present update_cache=yes
+  vars:
+    packages:
+      - libsass-dev
+      - redis-server
+- name: Add the user that nitter will run as
+  user: name={{ NITTER_USER }} shell=/bin/bash state=present
