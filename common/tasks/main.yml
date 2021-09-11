@@ -9,5 +9,7 @@
       - libsass-dev
       - redis-server
       - build-essential
+      - git
+      - curl
 - name: Add the user that nitter will run as
   ansible.builtin.user: name={{ NITTER_USER }} shell=/bin/bash state=present
