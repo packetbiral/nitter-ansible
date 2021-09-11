@@ -5,6 +5,7 @@
   ansible.builtin.git:
     repo: 'https://github.com/zedeus/nitter'
     dest: "/home/{{ NITTER_USER }}/nitter"
+    force: yes
   become: true
   become_user: "{{ NITTER_USER }}"
 - name: Template and copy nitter build script
