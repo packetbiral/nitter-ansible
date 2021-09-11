@@ -13,7 +13,7 @@
   ansible.builtin.shell: "/home/{{ NITTER_USER }}/init.sh -y"
   become: true
   become_user: "{{ NITTER_USER }}"
-- name: Copy .bashrc file to add nimble to PATH
+- name: Template and copy .bashrc file to add nimble to PATH
   ansible.builtin.template:
     src: .bashrc
     dest: "/home/{{ NITTER_USER }}/.bashrc"

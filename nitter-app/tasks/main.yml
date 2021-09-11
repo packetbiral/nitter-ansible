@@ -7,7 +7,7 @@
     dest: "/home/{{ NITTER_USER }}/nitter"
   become: true
   become_user: "{{ NITTER_USER }}"
-- name: Copy nitter build script
+- name: Template and copy nitter build script
   ansible.builtin.template:
     src: buildnitter.sh
     dest: "/home/{{ NITTER_USER }}/buildnitter.sh"
