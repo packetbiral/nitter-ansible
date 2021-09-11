@@ -12,3 +12,7 @@
     state: started
     enabled: yes
     daemon_reload: yes
+- name: Make sure redis-server is enabled
+  ansible.builtin.systemd:
+    name: redis-server
+    enabled: yes
