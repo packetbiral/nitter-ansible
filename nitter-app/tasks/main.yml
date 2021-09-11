@@ -19,3 +19,4 @@
     executable: /bin/bash
   become: true
   become_user: "{{ NITTER_USER }}"
+  ignore_errors: yes
