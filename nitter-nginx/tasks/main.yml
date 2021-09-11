@@ -13,7 +13,7 @@
 - name: Install acme.sh
   ansible.builtin.shell: cd /opt/acme.sh && ./acme.sh --install
 - name: Template and copy over our account.conf for acme.sh
-  ansible.builtin:template:
+  ansible.builtin.template:
     src: account.conf
     dest: /root/.acme.sh/account.conf
 - name: Generate certificate using acme.sh
