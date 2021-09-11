@@ -6,5 +6,5 @@
     - nim
     - nitter-app
     - nitter-config
-#    - nitter-systemd
+    - nitter-systemd
 #    - nitter-nginx

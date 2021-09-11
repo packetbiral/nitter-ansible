@@ -1,0 +1,14 @@
+---
+# This role templates the systemd service file for the nitter service and
+# then enables it
+
+- name: Template and copy nitter.service
+  ansible.builtin.template:
+    src: nitter.service
+    dest: /etc/systemd/system/nitter.service
+- name: Enable nitter service
+  ansible.builtin.systemd:
+    name: nitter
+    state: started
+    enabled: yes
+    daemon_reload: yes

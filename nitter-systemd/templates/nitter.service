@@ -1,0 +1,21 @@
+[Unit]
+Description=Nitter (An alternative Twitter front-end)
+After=syslog.target
+After=network.target
+
+[Service]
+Type=simple
+
+# set user and group
+User={{ NITTER_USER }}
+Group={{ NITTER_USER }}
+
+# configure location
+WorkingDirectory=/home/{{ NITTER_USER }}/nitter
+ExecStart=/home/{{ NITTER_USER }}/nitter/nitter
+
+Restart=always
+RestartSec=15
+
+[Install]
+WantedBy=multi-user.target
