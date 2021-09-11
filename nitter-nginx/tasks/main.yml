@@ -1,0 +1,23 @@
+---
+# This role sets up a SSL certificate for our web server and then sets up said
+# web server
+
+- name: Make TLS certificate storage directory
+  ansible.builtin.file: name=/etc/ssl/letsencrypt/ state=directory
+- name: Make sure /opt exists
+  ansible.builtin.file: name=/opt state=directory
+- name: Clone acme.sh repository
+  ansible.builtin.git:
+    repo: https://github.com/Neilpang/acme.sh.git
+    dest: /opt/acme.sh
+- name: Install acme.sh
+  ansible.builtin.shell: cd /opt/acme.sh && ./acme.sh --install
+- name: Template and copy over our account.conf for acme.sh
+  ansible.builtin:template:
+    src: account.conf
+    dest: /root/.acme.sh/account.conf
+- name: Generate certificate using acme.sh
+  ansible.builtin.shell: /root/.acme.sh/acme.sh --issue --standalone -d {{ NITTER_DOMAIN }} --pre-hook "service nginx stop"
+  ignore_errors: yes
+- name: Install certificate in storage directory
+  ansible.builtin.shell: /root/.acme.sh/acme.sh --install-cert -d {{ NITTER_DOMAIN }} --key-file /etc/ssl/letsencrypt/{{ NITTER_DOMAIN }}.pem --fullchain-file /etc/ssl/letsencrypt/{{ NITTER_DOMAIN }}.crt --reloadcmd "service nginx restart"

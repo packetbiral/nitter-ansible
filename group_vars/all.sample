@@ -10,3 +10,6 @@ NITTER_PORT: 8080
 # Specify the HMAC Nitter will use
 # generate this using pwgen -s 24 1
 NITTER_HMAC:
+
+# Specify the ACCOUNT_EMAIL for acme.sh
+ACME_ACCOUNT_EMAIL: letsencrypt@example.com
