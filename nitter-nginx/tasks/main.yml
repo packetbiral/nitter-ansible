@@ -20,6 +20,10 @@
   ansible.builtin.apt:
     name: nginx
     state: present
+- name: Install socat for standalone mode
+  ansible.builtin.apt:
+    name: socat
+    state: present
 - name: Generate certificate using acme.sh
   ansible.builtin.shell: /root/.acme.sh/acme.sh --issue --standalone -d {{ NITTER_DOMAIN }} --pre-hook "service nginx stop"
   ignore_errors: yes
