@@ -14,7 +14,7 @@
   become: true
   become_user: "{{ NITTER_USER }}"
 - name: Run nitter build script
-  ansible.builtin.shell: "/home/{{ NITTER_USER }}/buildnitter.sh"
+  ansible.builtin.shell: "bash /home/{{ NITTER_USER }}/buildnitter.sh"
   args:
     executable: /bin/bash
   become: true
