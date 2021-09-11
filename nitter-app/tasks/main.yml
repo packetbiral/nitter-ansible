@@ -1,0 +1,21 @@
+---
+# Download Nitter application from Github
+
+- name: Checkout nitter repo
+  ansible.builtin.git:
+    repo: 'https://github.com/zedeus/nitter'
+    dest: "/home/{{ NITTER_USER }}/nitter"
+  become: true
+  become_user: "{{ NITTER_USER }}"
+- name: Copy nitter build script
+  ansible.builtin.template:
+    src: buildnitter.sh
+    dest: "/home/{{ NITTER_USER }}/buildnitter.sh"
+  become: true
+  become_user: "{{ NITTER_USER }}"
+- name: Run nitter build script
+  ansible.builtin.shell: "/home/{{ NITTER_USER }}/buildnitter.sh"
+  args:
+    executable: /bin/bash
+  become: true
+  become_user: "{{ NITTER_USER }}"
