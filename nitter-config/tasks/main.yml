@@ -1,0 +1,9 @@
+---
+# This role templates nitter.conf and copies it our target host
+
+- name: Template and copy nitter.conf
+  ansible.builtin.template:
+    src: nitter.conf
+    dest: "/home/{{ NITTER_USER }}/nitter/nitter.conf"
+  become: true
+  become_user: "{{ NITTER_USER }}"

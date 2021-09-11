@@ -5,6 +5,6 @@
     - common
     - nim
     - nitter-app
-#    - nitter-config
+    - nitter-config
 #    - nitter-systemd
 #    - nitter-nginx
