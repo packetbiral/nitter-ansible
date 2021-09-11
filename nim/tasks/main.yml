@@ -5,5 +5,9 @@
     url: https://nim-lang.org/choosenim/init.sh
     dest: "/home/{{ NITTER_USER }}/init.sh"
     mode: '0755'
+  become: true
+  become_user: "{{ NITTER_USER }}"
 - name: Run choosenim install script
   ansible.builtin.shell: "/home/{{ NITTER_USER }}/init.sh -y"
+  become: true
+  become_user: "{{ NITTER_USER }}"
