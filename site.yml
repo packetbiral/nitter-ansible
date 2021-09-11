@@ -3,7 +3,7 @@
   hosts: nitter
   roles:
     - common
-#    - nim
+    - nim
 #    - nitter-app
 #    - nitter-config
 #    - nitter-systemd

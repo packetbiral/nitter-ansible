@@ -1,0 +1,9 @@
+---
+# This role will install nim into NITTER_USER using choosenim
+- name: Download choosenim install script
+  ansible.builtin.get_url:
+    url: https://nim-lang.org/choosenim/init.sh
+    dest: "/home/{{ NITTER_USER }}/init.sh"
+    mode: '0755'
+- name: Run choosenim install script
+  ansible.builtin.shell: "/home/{{ NITTER_USER }}/init.sh -y"
