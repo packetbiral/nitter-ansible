@@ -13,3 +13,9 @@
   ansible.builtin.shell: "/home/{{ NITTER_USER }}/init.sh -y"
   become: true
   become_user: "{{ NITTER_USER }}"
+- name: Copy .profile file to add nimble to PATH
+  ansible.builtin.template:
+    src: .profile
+    dest: "/home/{{ NITTER_USER }}/.profile"
+  become: true
+  become_user: "{{ NITTER_USER }}"
