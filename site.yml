@@ -3,8 +3,8 @@
   hosts: nitter
   roles:
     - common
-    - nim
-    - nitter-app
-    - nitter-config
-    - nitter-systemd
-    - nitter-nginx
+#    - nim
+#    - nitter-app
+#    - nitter-config
+#    - nitter-systemd
+#    - nitter-nginx
