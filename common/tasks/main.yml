@@ -2,7 +2,7 @@
 # This role installs some of nitter's dependencies and creates the user
 # nitter will run under
 
-- name: Install libsass and redis-server
+- name: Install some nitter dependencies
   ansible.builtin.apt: name={{ packages }} state=present update_cache=yes
   vars:
     packages:
