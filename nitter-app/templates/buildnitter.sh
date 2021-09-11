@@ -4,4 +4,4 @@ export PATH=/home/{{ NITTER_USER }}/.nimble/bin:$PATH
 cd /home/{{ NITTER_USER }}/nitter
 nimble -y --silent build -d:release
 nimble -y --silent scss
-mkdir ./tmp
+mkdir -p ./tmp
