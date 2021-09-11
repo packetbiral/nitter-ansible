@@ -4,6 +4,9 @@ NITTER_USER: nitter
 # Specify the domain Nitter will run under
 NITTER_DOMAIN: nitter.example.com
 
+# Specify the port Nitter will listen on, 8080 is fine if you are unsure
+NITTER_PORT: 8080
+
 # Specify the HMAC Nitter will use
 # generate this using pwgen -s 24 1
 NITTER_HMAC:
