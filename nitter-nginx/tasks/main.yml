@@ -29,3 +29,20 @@
   ignore_errors: yes
 - name: Install certificate in storage directory
   ansible.builtin.shell: /root/.acme.sh/acme.sh --install-cert -d {{ NITTER_DOMAIN }} --key-file /etc/ssl/letsencrypt/{{ NITTER_DOMAIN }}.pem --fullchain-file /etc/ssl/letsencrypt/{{ NITTER_DOMAIN }}.crt --reloadcmd "service nginx restart"
+- name: Remove default nginx config in sites-enabled
+  ansible.builtin.file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+- name: Copy Nitter nginx vhost template to sites-available
+  ansible.builtin.template:
+    src: nitter-nginx.conf
+    dest: /etc/nginx/sites-available/{{ NITTER_DOMAIN }}.conf
+- name: Enable Nitter nginx vhost template
+  ansible.builtin.file:
+    src: /etc/nginx/sites-available/{{ NITTER_DOMAIN }}.conf
+    dest: /etc/nginx/sites-enabled/{{ NITTER_DOMAIN }}.conf
+    state: link
+- name: Make sure nginx service is restarted
+  ansible.builtin.service:
+    name: nginx
+    state: restarted
