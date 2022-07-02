@@ -1,3 +1,9 @@
+# ARCHIVED
+
+THIS REPOSITORY WAS MOVED.
+
+THE NEW REPOSITORY URL IS: https://git.packetcat.ca/packetcat/nitter-ansible
+
 # nitter-ansible
 Ansible playbook to install nitter
 
